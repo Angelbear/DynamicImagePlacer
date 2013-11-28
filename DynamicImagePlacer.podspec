@@ -10,7 +10,6 @@ Pod::Spec.new do |s|
 
   s.author       = { "Yangyang Zhao" => "yangyang.zhao.thu@gmail.com" }
 
-  s.platform     = :ios
   s.platform     = :ios, '5.0'
 
   s.source       = { :git => "https://github.com/Angelbear/DynamicImagePlacer.git", :tag => "0.0.1" }
@@ -19,10 +18,12 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'Source/DynamicImagePlacer.h'
 
-  s.resource  = "Resource/DynamicImagePlacer.bundle"
+  s.ios.resource_bundle  = { 'DynamicImagePlacer' => 'Resource/DynamicImagePlacer.bundle' }
 
   s.frameworks = 'CFNetwork', 'MobileCoreServices', 'Security'
   s.requires_arc = true
+
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 
   s.dependency 'RoutingHTTPServer', '~> 1.0.0'
   s.dependency 'CCTemplate', '~> 0.2.0'
