@@ -180,6 +180,7 @@
 		B445AB181846011700A63008 /* SampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleViewController.m; sourceTree = "<group>"; };
 		B48A1E191846DCDA004D49C2 /* NSString+ImageStringResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ImageStringResolver.h"; sourceTree = "<group>"; };
 		B48A1E1A1846DCDB004D49C2 /* NSString+ImageStringResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ImageStringResolver.m"; sourceTree = "<group>"; };
+		B48A1E6B18473E39004D49C2 /* UIImageNibPlaceholder+LocalReplacement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageNibPlaceholder+LocalReplacement.h"; sourceTree = "<group>"; };
 		B4FC984F1845EE5A005D042A /* DynamicImagePlacerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicImagePlacerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FC98521845EE5A005D042A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B4FC98541845EE5A005D042A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -592,6 +593,7 @@
 				B4FC98FA1845EFAA005D042A /* UIImage+LocalReplacement.h */,
 				B4FC98FB1845EFAA005D042A /* UIImage+LocalReplacement.m */,
 				B4FC98FD1845EFAA005D042A /* UIImageNibPlaceholder.h */,
+				B48A1E6B18473E39004D49C2 /* UIImageNibPlaceholder+LocalReplacement.h */,
 				B4FC98FC1845EFAA005D042A /* UIImageNibPlaceholder+LocalReplacement.m */,
 				B48A1E191846DCDA004D49C2 /* NSString+ImageStringResolver.h */,
 				B48A1E1A1846DCDB004D49C2 /* NSString+ImageStringResolver.m */,

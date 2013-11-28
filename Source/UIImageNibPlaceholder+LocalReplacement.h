@@ -1,4 +1,4 @@
-// UIImageNibPlaceholder+LocalReplacement.m
+// UIImageNibPlaceholder+LocalReplacement.h
 //
 // Copyright (c) 2013 Yangyang Zhao (https://github.com/Angelbear/DynamicImagePlacer)
 //
@@ -19,15 +19,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+#import "UIImageNibPlaceholder.h"
 
-#import "UIImageNibPlaceholder+LocalReplacement.h"
-
-@implementation UIImageNibPlaceholder(LocalReplacement)
-#ifdef DEBUG
-- (id) initWithCoder:(id)coder
-{
-    NSString * name = [coder decodeObjectForKey:@"UIResourceName"];
-    return [UIImage imageNamed:name];
-}
-#endif
+@interface UIImageNibPlaceholder(LocalReplacement)
 @end
