@@ -1,9 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "DynamicImagePlacer"
   s.version      = "0.0.1"
-  s.summary      = "DynamicImagePlacer is a Library for iOS developer and designer for simply replace the image files in resource bundle without rebuild the app."
-
-  s.description  = "DynamicImagePlacer is a Library for iOS developer and designer for simply replace the image files in resource bundle without rebuild the app."
+  s.summary      = "a Library for iOS developer and designer for simply replace the image files in resource bundle without rebuild the app."
 
   s.homepage     = "https://github.com/Angelbear/DynamicImagePlacer"
   s.screenshots  = "https://raw.github.com/Angelbear/DynamicImagePlacer/master/ScreenShots/Simulator1.png", "https://raw.github.com/Angelbear/DynamicImagePlacer/master/ScreenShots/Simulator2.png", "https://raw.github.com/Angelbear/DynamicImagePlacer/master/ScreenShots/Simulator3.png", "https://raw.github.com/Angelbear/DynamicImagePlacer/master/ScreenShots/WebSite1.png", "https://raw.github.com/Angelbear/DynamicImagePlacer/master/ScreenShots/WebSite3.png"
