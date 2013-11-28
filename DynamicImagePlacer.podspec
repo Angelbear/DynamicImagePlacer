@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'Source/DynamicImagePlacer.h'
 
-  s.ios.resource_bundle  = { 'DynamicImagePlacer' => 'Resource/DynamicImagePlacer.bundle' }
+  s.resource = 'Resource/DynamicImagePlacer.bundle'
 
   s.frameworks = 'CFNetwork', 'MobileCoreServices', 'Security'
   s.requires_arc = true
