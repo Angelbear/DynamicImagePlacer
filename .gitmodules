@@ -1,0 +1,9 @@
+[submodule "Support/RoutingHTTPServer"]
+	path = Support/RoutingHTTPServer
+	url = https://github.com/mattstevens/RoutingHTTPServer.git
+[submodule "Support/CocoaTemplateEngine"]
+	path = Support/CocoaTemplateEngine
+	url = https://github.com/xhan/CocoaTemplateEngine.git
+[submodule "Support/Base64"]
+	path = Support/Base64
+	url = https://github.com/ekscrypto/Base64.git

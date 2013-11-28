@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <h1>{{ app_name }} {{ app_version }} ({{ app_id }})</h1>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Size</td>
+                <td>Built in</td>
+                <td>Replacement</td>
+                <td>Delete</td>
+            </tr>
+            {{ list_content }}
+        </table>
+        <script>
+            function killServer () {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/kill', true);
+                xhr.onload = function (e) {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            console.log(xhr.responseText);
+                            window.location = "/";
+                        } else {
+                            console.error(xhr.statusText);
+                        }
+                    }
+                };
+                xhr.onerror = function (e) {
+                    console.error(xhr.statusText);
+                };
+                xhr.send(null);
+            }
+        </script>
+        <a href="javascript:killServer();">Kill App</a>
+    </body>
+</html>
+

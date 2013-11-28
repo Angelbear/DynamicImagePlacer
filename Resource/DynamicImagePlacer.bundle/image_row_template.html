@@ -1,0 +1,119 @@
+<tr>
+    <td>{{ file_name }}</td>
+    <td>{{ image_width }}x{{ image_height }}</td>
+    <td>
+        <img src="data:image/png;base64,{{ image_data }}" width="{{ image_width }}" height="{{ image_height }}">
+    </td>
+    <td>
+        <style>
+            #holder{{ file_id }} { border: 10px dashed #ccc; width: {{ image_width }}px; height: {{ image_height }}px;}
+            #holder{{ file_id }}.hover { border: 10px dashed #0c0; }
+            #holder{{ file_id }} img { display: block; }
+            #holder{{ file_id }} p { margin: 10px; font-size: 14px; }
+            .fail { background: #c00; padding: 2px; color: #fff; }
+            .hidden { display: none !important;}
+        </style>
+        <div id="holder{{ file_id }}">
+            {{ local_image }}
+        </div>
+        <p id="upload{{ file_id }}" class="hidden"><label>Drag &amp; drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
+        <p id="filereader{{ file_id }}">File API &amp; FileReader API not supported</p>
+        <p id="formdata{{ file_id }}">XHR2's FormData is not supported</p>
+        <script>
+            var holder{{ file_id }} = document.getElementById('holder{{ file_id }}'),
+            tests{{ file_id }} = {
+                filereader: typeof FileReader != 'undefined',
+                dnd: 'draggable' in document.createElement('span'),
+                formdata: !!window.FormData,
+            },
+            support{{ file_id }} = {
+                filereader: document.getElementById('filereader{{ file_id }}'),
+                formdata: document.getElementById('formdata{{ file_id }}')
+            },
+            acceptedTypes{{ file_id }} = {
+                'image/png': true,
+            },
+            fileupload{{ file_id }} = document.getElementById('upload{{ file_id }}');
+
+            "filereader formdata".split(' ').forEach(function (api) {
+                if (tests{{ file_id }}[api] === false) {
+                    support{{ file_id }}[api].className = 'fail';
+                    } else {
+                    support{{ file_id }}[api].className = 'hidden';
+                }
+            });
+
+            function previewfile{{ file_id }}(file) {
+                if (tests{{ file_id }}.filereader === true && acceptedTypes{{ file_id }}[file.type] === true) {
+                    var reader = new FileReader();
+                    reader.onload = function (event) {
+                        var image = new Image();
+                        image.src = event.target.result;
+                        image.width = {{ image_width }};
+                        image.height = {{ image_height }};
+                        while (holder{{ file_id }}.hasChildNodes()) {
+                            holder{{ file_id }}.removeChild(holder{{ file_id }}.lastChild);
+                        }
+                        holder{{ file_id }}.appendChild(image);
+                    };
+
+                    reader.readAsDataURL(file);
+                    }  else {
+                    holder{{ file_id }}.innerHTML += '<p>Uploaded ' + file.name + ' ' + (file.size ? (file.size/1024|0) + 'K' : '');
+                    console.log(file);
+                }
+            }
+
+            function readfiles{{ file_id }}(file) {
+                var formData = tests{{ file_id }}.formdata ? new FormData() : null;
+                previewfile{{ file_id }}(file);
+                // now post a new XHR request
+                if (tests{{ file_id }}.formdata) {
+                    formData.append('file', file);
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', '/upload/{{ file_name }}');
+                    xhr.send(formData);
+                }
+            }
+
+            if (tests{{ file_id }}.dnd) {
+                holder{{ file_id }}.ondragover = function () { this.className = 'hover'; return false; };
+                holder{{ file_id }}.ondragend = function (e) { this.className = ''; debugger; console.log("ondrag end"); return false; };
+                holder{{ file_id }}.ondragleave = function () { this.className = '';  console.log("ondrag leave"); return false; };
+                holder{{ file_id }}.ondrop = function (e) {
+                    this.className = '';
+                    e.preventDefault();
+                    readfiles{{ file_id }}(e.dataTransfer.files[0]);
+                }
+                } else {
+                fileupload{{ file_id }}.className = 'hidden';
+                fileupload{{ file_id }}.querySelector('input').onchange = function () {
+                    readfiles{{ file_id }}(this.files[0]);
+                };
+            }
+        </script>
+    </td>
+    <td>
+        <script>
+            function deletefile{{ file_id }} () {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/delete/{{ file_name }}', true);
+                xhr.onload = function (e) {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            console.log(xhr.responseText);
+                            window.location = "/";
+                        } else {
+                            console.error(xhr.statusText);
+                        }
+                    }
+                };
+                xhr.onerror = function (e) {
+                    console.error(xhr.statusText);
+                };
+                xhr.send(null);
+            }
+        </script>
+        <a href="javascript:deletefile{{ file_id }}();">Delete</a>
+    </td>
+</tr>
