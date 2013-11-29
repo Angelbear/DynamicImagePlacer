@@ -12,7 +12,7 @@ After doing serveral application projects in a team, I find that some basic fact
 - For certain kinds of image resources of an iOS application (Navigation Item Image, Tabbar Item Image, Toolbar Item Image, View Background Image, etc.), the sizes of these images are fixed or can be fixed at the very early time in the project.
 - Developers always use some "SELF FOUND IMAGES" to fit the icon components first. 
 - Designers want to see their parts used in the application as soon as possible after they made a minor change. (May be an color change or 1 pixel change)
-- Developers are working on some temple branch, even can not get current code base compiled, they are lazy to change to the version that is installed in designer's device. So they think maybe designers can replace the images theirselves.
+- Developers are working on some tmp branch, even can not get current code base compiled, they are lazy to change to the version that is installed in designer's device. So they think maybe designers can replace the images theirselves.
 - Designers refuse to learn how to use Xcode, they even do not download it.
 
 So here comes the **DynamicImagePlacer** idea, with which
@@ -25,7 +25,7 @@ So here comes the **DynamicImagePlacer** idea, with which
 
 Slightly use some techniques like [Runtime Method Swizzling](http://cocoadev.com/MethodSwizzling) and setting up an iOS webserver.
 
- 1. Use runtime method swizzling to hool UIImage native implementation.
+ 1. Use runtime method swizzling to hook UIImage native implementation.
  2. Set up webserver to interact with developer/designers.
  3. Designer upload the image for replacement and the webserver store images into application's document directory with same name of the original images.
  4. When application get restart, code/Storyboard/Xib usage of the original image in resource bundle will be replaced with the replacement version image in the docuemtn directory.
