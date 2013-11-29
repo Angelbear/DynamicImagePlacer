@@ -2,7 +2,7 @@
 
 DynamicImagePlacer is a Library for iOS developer and designer for simply replace the image files in resource bundle without rebuild the app.
 
-Supports iOS 6+
+Supports iOS 5+
 
 ## Background
 
