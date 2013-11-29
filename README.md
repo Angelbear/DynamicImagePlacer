@@ -43,7 +43,7 @@ Slightly use some techniques like [Runtime Method Swizzling](http://cocoadev.com
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like AFNetworking in your projects. See the ["Getting Started" guide for more information](https://github.com/AFNetworking/AFNetworking/wiki/Getting-Started-with-AFNetworking).
 
 #### Podfile
-    platform :ios, '6.0'
+    platform :ios, '5.0'
     pod "DynamicImagePlacer", "~> 0.0.1"
     
 
